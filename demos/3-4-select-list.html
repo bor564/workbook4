@@ -18,7 +18,8 @@
         <form>
         <label for="statesDropdownList">State</label>
         <select  id="statesDropdownList">
-            <option value="">Select</option>            
+            <option value="">Select</option> 
+            <option value="AL">Alabama</option>           
         </select>
         
     </form>
@@ -85,11 +86,24 @@
     function LoadStateDropdownList() {
         for (const state of states) {
             console.log(state);
+            let option = document.createElement("option")
+            option.textContent = state.name;
+            //setting the value property is creating an attribute on option element
+            option.value =state.abbrev;
+            statesDropdownList.appendChild(option)
         }
         
         
     }
     LoadStateDropdownList();
+
+    window.onload = function () {
+        LoadStateDropdownList();
+        
+    }
     </script>
 </body>
+
+
+
 </html>

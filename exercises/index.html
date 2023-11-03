@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Football Team Information</title>
+</head>
+<body>
+    <h1>Select a Football Team</h1>
+
+    <!-- Dropdown list for football teams -->
+    <select id="teamSelect">
+        <option value="">Select a team</option>
+    </select>
+
+    <!-- Button to display team information -->
+    <button id="showInfoButton">Show Team Info</button>
+
+    <!-- Paragraph to display team information -->
+    <p id="teamInfo"></p>
+
+    <script>
+        'use strict';
+
+        // Array of football teams
+        let teams = [
+            { code: "DAL", name: "Dallas Cowboys", plays: "Arlington, TX" },
+            { code: "DEN", name: "Denver Broncos", plays: "Denver, CO" },
+            { code: "HOU", name: "Houston Texans", plays: "Houston, TX" },
+            { code: "KAN", name: "Kansas City Chiefs", plays: "Kansas City, MO" }
+        ];
+
+        // Function to initialize the football select element
+        function initializeTeamSelect() {
+            const teamSelect = document.getElementById("teamSelect");
+
+            // Loop through the teams array and create options for the select element
+            teams.forEach((team) => {
+                const option = document.createElement("option");
+                option.value = team.code;
+                option.text = team.name;
+                teamSelect.appendChild(option);
+            });
+        }
+
+        // Function to display team information when the button is clicked
+    function showTeamInfo() {
+        const selectedTeamCode = document.getElementById("teamSelect").value;
+        const teamInfoParagraph = document.getElementById("teamInfo");
+
+        if (selectedTeamCode) {
+            const selectedTeam = teams.find((team) => team.code === selectedTeamCode);
+            if (selectedTeam) {
+                teamInfoParagraph.textContent = `You selected the ${selectedTeam.name} (${selectedTeam.code}) who play in ${selectedTeam.plays}.`;
+            } else {
+                teamInfoParagraph.textContent = "Team information not found.";
+            }
+        } else {
+            teamInfoParagraph.textContent = "Please select a team.";
+        }
+    }
+
+    // Add an event listener for the button click
+    document.getElementById("showInfoButton").addEventListener("click", showTeamInfo);
+
+    // Add an event listener for the window's onload event to initialize the team select
+    window.onload = initializeTeamSelect;
+
+        // Add an event listener for the button click
+        document.getElementById("showInfoButton").addEventListener("click", showTeamInfo);
+
+        // Add an event listener for the window's onload event to initialize the team select
+        window.onload = initializeTeamSelect;
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- <form>
+    <label for="footballTeamsLists">Team</label>
+    <select  id="footballTeamsLists"></select>
+    <option value="">Select Team</option>
+
+</form>
+
+</main>
+<script>
+const Teams = [
+    {code:"DAL", name:"Dallas Cowboys", plays:"Arlington, TX"},
+    {code:"DEN", name:"Denver Broncos", plays:"Denver, CO"},
+    {code:"HOU", name:"Houston Texans", plays:"Houston, TX"},
+    {code:"KAN", name:"Kansas City Chiefs",plays:"Kansas City, MO"}
+                                                
+];
+const footballTeamsLists = document.getElementById("footballTeamsLists");
+
+function footballTeamsLists () {
+    for (const team of Teams) {
+        console.log(team);
+
+        let option = document.createElement("option")
+        option.textContent = Teams.code;
+        
+        option.value = Teams.name;
+
+        option.value = Teams.plays;
+        footballTeamsLists.appendChild(option);
+    }
+loadfootballTeamsLists();
+} -->
