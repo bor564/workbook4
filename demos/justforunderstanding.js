@@ -1,4 +1,4 @@
-// Set “total” to 0.
+//Set “total” to 0.
 let total = 0
 //  Set “count” to 1.
 let count = 1
@@ -9,7 +9,7 @@ while (count<=10) {
     
 }
 
-console.log(total);
+// console.log(total);
     
 
 //  Set “compare” to “count”.
@@ -21,3 +21,5 @@ console.log(total);
 // [end]
 //  Output “total”.
  
+//another option
+//console.log(sum(Range(1,10)));

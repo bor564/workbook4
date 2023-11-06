@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Categories</title>
+</head>
+<body>
+    <h1>Select a Category</h1>
+
+    <!-- Category dropdown -->
+    <select id="categorySelect">
+        <option value="drinks">Drinks</option>
+        <option value="entrees">Entrees</option>
+        <option value="desserts">Desserts</option>
+    </select>
+
+    <!-- Listbox to display items from the selected category -->
+    <select id="itemListbox" size="5"></select>
+
+    <script>
+        'use strict';
+
+        // Menu data structure
+        let menu = {
+            drinks: ["Water", "Tea", "Sweet Tea", "Coke", "Dr. Pepper", "Sprite"],
+            entrees: ["Grilled Cheese w/ Tater Tots", "Hamburger w/ Fries", "Chicken Fried Steak w/ Mashed Potatoes", "Fried Shrimp w/ Coleslaw", "Grilled Chicken w/ Veggies", "Veggie Plate"],
+            desserts: ["Cheesecake", "Chocolate Cake", "Snickerdoodle Cookie"]
+        };
+
+        // Function to handle the change event for the category dropdown
+        function updateItemList() {
+            const categorySelect = document.getElementById("categorySelect");
+            const itemListbox = document.getElementById("itemListbox");
+            const selectedCategory = categorySelect.value;
+
+            // Clear the listbox
+            itemListbox.innerHTML = "";
+
+            // Load items from the selected category
+            if (selectedCategory in menu) {
+                menu[selectedCategory].forEach((item) => {
+                    const option = document.createElement("option");
+                    option.text = item;
+                    itemListbox.appendChild(option);
+                });
+            }
+        }
+
+        // Add an event listener for the change event on the category dropdown
+        document.getElementById("categorySelect").addEventListener("change", updateItemList);
+
+        // Initialize the listbox with the default category (Drinks)
+        updateItemList();
+    </script>
+</body>
+</html>
